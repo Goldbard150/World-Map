@@ -15,3 +15,9 @@ fonts/*
 # 3. Ensure all font glyph files (.pbf) and metadata inside that folder are tracked
 !fonts/Klokantech Noto Sans Regular/*.pbf
 !fonts/Klokantech Noto Sans Regular/*.json
+
+
+#mbtiles
+mbtiles/*.mbtiles
+mbtiles/*.pbf
+mbtiles/data

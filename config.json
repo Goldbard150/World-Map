@@ -1,20 +1,20 @@
 {
-  "options": {
-    "paths": {
-      "root": "",
-      "mbtiles": "mbtiles",
-      "fonts": "fonts",
-      "sprites": "styles/sprites"
+    "options": {
+        "paths": {
+            "root": "",
+            "mbtiles": "mbtiles",
+            "fonts": "fonts",
+            "sprites": "styles/sprites"
+        }
+    },
+        "styles": {
+        "osm-bright": {
+        "style": "styles/style.json"
+        }
+    },
+    "data": {
+        "openmaptiles": {
+            "mbtiles": "output.mbtiles"
+        }
     }
-  },
-  "styles": {
-    "osm-bright": {
-      "style": "styles/style.json"
-    }
-  },
-  "data": {
-    "openmaptiles": {
-      "mbtiles": "israel.mbtiles"
-    }
-  }
 }
