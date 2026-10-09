@@ -40,6 +40,7 @@ If you are a new user and have cloned this repository, follow these steps to set
 
 Make sure you have the following installed on your machine:
 * **Node.js** (which includes `npm`) – [Download Node.js](https://nodejs.org/)
+* **Java (JDK 17 or newer)** – Required for running Planetiler – [Download OpenJDK](https://adoptium.net/)
 * **Python** (often pre-installed on macOS/Linux) – Used for running a simple local HTTP server.
 
 ### 2. Clone the Repository
@@ -61,7 +62,24 @@ npm install
 
 *(Note: If you ever start a brand new Node project from absolute scratch yourself, you would run `npm init -y` first, but for this cloned repository, simply running `npm install` installs all tracked dependencies).*
 
-### 4. Run a Local Development Server
+---
+
+### 4. Generating Local MBTiles from a PBF File (Planetiler)
+
+If you have downloaded a local OpenStreetMap raw data file (`.pbf`) and want to generate vector map tiles (`.mbtiles`) using **Planetiler**:
+
+1. Ensure you have the `planetiler.jar` file placed in your working directory alongside your downloaded `.pbf` file.
+2. Run the conversion command in your terminal:
+   ```bash
+   java -Xmx4g -jar planetiler.jar --osm-path=path/to/your-file.pbf --output=output.mbtiles
+   ```
+   * `-Xmx4g` allocates 4GB of RAM to speed up the process.
+   * `--osm-path` directs Planetiler to use your local PBF file without downloading anything from the internet.
+   * `--output` specifies the name and location of the resulting `.mbtiles` file.
+
+---
+
+### 5. Run a Local Development Server
 
 Because modern web browsers enforce strict security policies regarding local file fetching (`CORS policy`), you must run a local HTTP server from the root directory of the project.
 
@@ -73,7 +91,7 @@ Run one of the following commands depending on your environment:
   ```
   *(Or `python -m SimpleHTTPServer 8080` for older Python 2 versions)*
 
-### 5. Open the Map in Your Browser
+### 6. Open the Map in Your Browser
 
 Once the server is running, open your web browser and navigate to:
 
