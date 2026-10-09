@@ -1,0 +1,17 @@
+# Node modules & dependencies
+node_modules/
+
+# System or OS specific files (optional but recommended)
+.DS_Store
+Thumbs.db
+
+
+# 1. Ignore everything inside the fonts directory by default
+fonts/*
+
+# 2. Do not ignore (track) your specific required font folder
+!fonts/Klokantech Noto Sans Regular/
+
+# 3. Ensure all font glyph files (.pbf) and metadata inside that folder are tracked
+!fonts/Klokantech Noto Sans Regular/*.pbf
+!fonts/Klokantech Noto Sans Regular/*.json

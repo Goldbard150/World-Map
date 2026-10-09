@@ -1,0 +1,28 @@
+{
+  "points": [
+    {
+      "lat": 32.0853,
+      "lon": 34.7818,
+      "title": "Tel Aviv",
+      "description": "The city that never sleeps",
+      "paint": {
+        "circle-radius": 10,
+        "circle-color": "#e63946",
+        "circle-stroke-width": 2,
+        "circle-stroke-color": "#ffffff"
+      }
+    },
+    {
+      "lat": 31.7683,
+      "lon": 35.2137,
+      "title": "Jerusalem",
+      "description": "Capital of Israel",
+      "paint": {
+        "circle-radius": 12,
+        "circle-color": "#1d3557",
+        "circle-stroke-width": 2,
+        "circle-stroke-color": "#ffb703"
+      }
+    }
+  ]
+}
