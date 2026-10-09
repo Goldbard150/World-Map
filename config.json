@@ -14,7 +14,7 @@
     },
     "data": {
         "openmaptiles": {
-            "mbtiles": "zurich_switzerland.mbtiles"
+            "mbtiles": "output.mbtiles"
         }
     }
 }

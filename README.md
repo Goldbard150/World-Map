@@ -62,8 +62,6 @@ npm install
 
 *(Note: If you ever start a brand new Node project from absolute scratch yourself, you would run `npm init -y` first, but for this cloned repository, simply running `npm install` installs all tracked dependencies).*
 
----
-
 ### 4. Generating Local MBTiles from a PBF File (Planetiler)
 
 If you have downloaded a local OpenStreetMap raw data file (`.pbf`) and want to generate vector map tiles (`.mbtiles`) using **Planetiler**:
@@ -77,9 +75,9 @@ If you have downloaded a local OpenStreetMap raw data file (`.pbf`) and want to 
    * `--osm-path` directs Planetiler to use your local PBF file without downloading anything from the internet.
    * `--output` specifies the name and location of the resulting `.mbtiles` file.
 
----
-
 ### 5. Run a Local Development Server
+
+> 🚀 **Quick Start Shortcut:** Instead of manual commands, you can simply double-click and run the **`run.bat`** script located in the project root to automate the startup!
 
 Because modern web browsers enforce strict security policies regarding local file fetching (`CORS policy`), you must run a local HTTP server from the root directory of the project.
 
@@ -90,6 +88,18 @@ Run one of the following commands depending on your environment:
   python3 -m http.server 8080
   ```
   *(Or `python -m SimpleHTTPServer 8080` for older Python 2 versions)*
+
+* **Using NPM (Alternative Node.js static server):**
+  If you prefer using npm packages (like `serve` or a local script), you can run:
+  ```bash
+  npx serve .
+  ```
+
+* **Running the TileServer with Config (For MBTiles vector maps):**
+  To launch the map server using your local configuration file and serve vector tiles:
+  ```bash
+  npx tileserver-gl-light --config config.json
+  ```
 
 ### 6. Open the Map in Your Browser
 
