@@ -2597,6 +2597,31 @@
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 2
       }
+    },
+    {
+      "id": "3d-buildings",
+      "type": "fill-extrusion",
+      "source": "openmaptiles",
+      "source-layer": "building",
+      "minzoom": 13,
+      "paint": {
+        "fill-extrusion-color": [
+          "coalesce",
+          ["get", "colour"],
+          "#c8c5c0"
+        ],
+        "fill-extrusion-height": [
+          "coalesce",
+          ["get", "render_height"],
+          8
+        ],
+        "fill-extrusion-base": [
+          "coalesce",
+          ["get", "render_min_height"],
+          0
+        ],
+        "fill-extrusion-opacity": 0.95
+      }
     }
   ],
   "id": "bright"
