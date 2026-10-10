@@ -21,3 +21,4 @@ fonts/*
 mbtiles/*.mbtiles
 mbtiles/*.pbf
 mbtiles/data
+!mbtiles/map.mbtiles
