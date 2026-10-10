@@ -12,6 +12,11 @@ async function initMap() {
         zoom: 10
     });
 
+    map.on("load", () => {
+        map.setPitch(60);
+        map.setBearing(-20);
+    });
+
     // Automatically handle any missing icon requested by the style (like motorcycle_parking_11, parking_11, etc.)
     map.on('styleimagemissing', (e) => {
         // Check if the image has already been added to avoid duplicate additions
