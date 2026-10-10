@@ -14,7 +14,7 @@
     },
     "data": {
         "openmaptiles": {
-            "mbtiles": "output.mbtiles"
+            "mbtiles": "map.mbtiles"
         }
     }
 }
