@@ -16,5 +16,8 @@
         "openmaptiles": {
             "mbtiles": "map.mbtiles"
         }
-    }
+    },
+    "mapillary_offline": false,
+    "mapillary_folder": "israel_mapillary",
+    "offline_search_radius_meters": 200
 }

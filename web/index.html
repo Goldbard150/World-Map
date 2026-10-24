@@ -11,10 +11,25 @@
 
 <body>
   <div id="map"></div>
-  <div id="mapillary"></div>
+  <div id="mapillary">
+    <div id="mapillary-online-viewer"></div>
+    <canvas id="offline-panorama-canvas" aria-label="Offline street panorama"></canvas>
+    <div id="offline-panorama-controls">
+      <div class="panorama-navigation">
+        <button id="panorama-previous" type="button" aria-label="Previous panorama" title="Previous local panorama" disabled>‹</button>
+        <button id="panorama-play" type="button" aria-label="Start automatic panorama advance" title="Automatically advance local panoramas" aria-pressed="false" disabled>▶</button>
+        <button id="panorama-next" type="button" aria-label="Next panorama" title="Next local panorama" disabled>›</button>
+      </div>
+    </div>
+    <div id="panorama-metadata" aria-live="polite" hidden></div>
+    <div id="panorama-attribution"></div>
+  </div>
   <div id="camera-controls">
     <button id="live-camera-toggle" type="button" aria-pressed="false">
       Live Camera Mode
+    </button>
+    <button id="panorama-points-toggle" type="button" aria-pressed="false">
+      Show panorama points
     </button>
     <button id="mapillary-expand-toggle" type="button" aria-pressed="false">
       Expand camera
@@ -23,6 +38,7 @@
 
   <script src="js/maplibre-gl.js"></script>
   <script src="vendor/mapillary.js"></script>
+  <script src="js/offline-panorama.js"></script>
   <script src="js/load-map.js"></script>
 </body>
 </html>

@@ -20,8 +20,17 @@ fonts/*
 !fonts/Klokantech Noto Sans Regular/*.json
 
 
+
+
 #mbtiles
 mbtiles/*.mbtiles
 mbtiles/*.pbf
 mbtiles/data
-!mbtiles/map.mbtiles
+
+# Downloaded street imagery is local-only.
+israel_mapillary/
+asia_mapillary/
+offline-images/
+scripts/*
+!scripts/enrich-panorama-metadata.py
+points/
