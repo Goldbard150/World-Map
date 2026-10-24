@@ -3,21 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <title>Offline Map</title>
-  <link href="css/maplibre-gl.css" rel="stylesheet"/>
-
-  <style>
-    body, html { margin: 0; padding: 0; height: 100%; width: 100%; }
-    #map { width: 100vw; height: 100vh; background-color: #aad3df; }
-  </style>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/maplibre-gl.css"/>
+  <link rel="stylesheet" href="vendor/mapillary.css" />
+  <link rel="stylesheet" href="css/app.css" />
 </head>
 
 <body>
   <div id="map"></div>
-
+  <div id="mapillary">
+    <div id="mapillary-online-viewer"></div>
+    <canvas id="offline-panorama-canvas" aria-label="Offline street panorama"></canvas>
+    <div id="offline-panorama-controls">
+      <div class="panorama-navigation">
+        <button id="panorama-previous" type="button" aria-label="Previous panorama" title="Previous local panorama" disabled>‹</button>
+        <button id="panorama-play" type="button" aria-label="Start automatic panorama advance" title="Automatically advance local panoramas" aria-pressed="false" disabled>▶</button>
+        <button id="panorama-next" type="button" aria-label="Next panorama" title="Next local panorama" disabled>›</button>
+      </div>
+    </div>
+    <div id="panorama-metadata" aria-live="polite" hidden></div>
+    <div id="panorama-attribution"></div>
+  </div>
+  <div id="camera-controls">
+    <button id="live-camera-toggle" type="button" aria-pressed="false">
+      Live Camera Mode
+    </button>
+    <button id="panorama-points-toggle" type="button" aria-pressed="false">
+      Show panorama points
+    </button>
+    <button id="mapillary-expand-toggle" type="button" aria-pressed="false">
+      Expand camera
+    </button>
+  </div>
 
   <script src="js/maplibre-gl.js"></script>
-
+  <script src="vendor/mapillary.js"></script>
+  <script src="js/offline-panorama.js"></script>
   <script src="js/load-map.js"></script>
-
 </body>
 </html>

@@ -1,7 +1,8 @@
 @echo off
 chcp 65001 >nul
+cd /d "%~dp0"
 echo ========================================
-echo Activating TileServer-GL (via npx) and Local Web Server...
+echo Activating TileServer-GL and World Map local web server...
 echo ========================================
 
 :: 1. Activating TileServer-GL using npx in the background
@@ -12,5 +13,5 @@ start cmd /k "npx tileserver-gl --config config.json"
 timeout /t 3 /nobreak >nul
 
 :: 2. Activating the local Python web server for the site on port 8000 (remains active in this window)
-echo Activating local web server (Python)...
-python -m http.server 8000
+echo Activating local web server and reverse-geocoding endpoint...
+python server.py

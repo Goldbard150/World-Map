@@ -1,0 +1,263 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: #aad3df;
+}
+
+#mapillary {
+  position: absolute;
+  top: 68px;
+  right: 20px;
+  width: min(420px, calc(100vw - 40px));
+  height: min(560px, calc(100vh - 88px));
+  direction: ltr;
+  z-index: 10;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  background: #111;
+  display: none;
+}
+
+#offline-panorama-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+#mapillary-online-viewer {
+  position: absolute;
+  inset: 0;
+}
+
+#mapillary-online-viewer,
+#mapillary-online-viewer > * {
+  width: 100%;
+  height: 100%;
+}
+
+#offline-panorama-canvas:active {
+  cursor: grabbing;
+}
+
+#offline-panorama-controls {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  z-index: 12;
+  transform: translateX(-50%);
+}
+
+#offline-panorama-controls .panorama-navigation {
+  display: flex;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 7px;
+  background: rgba(65, 76, 84, 0.82);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  direction: ltr;
+}
+
+#offline-panorama-controls button {
+  display: grid;
+  width: 44px;
+  height: 38px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: white;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#offline-panorama-controls button:last-child {
+  border-right: 0;
+}
+
+#offline-panorama-controls button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#offline-panorama-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#panorama-play {
+  font-size: 17px !important;
+}
+
+#panorama-play[aria-pressed="true"] {
+  background: rgba(255, 121, 0, 0.85) !important;
+}
+
+#panorama-attribution {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 12;
+  padding: 4px 7px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 11px;
+}
+
+#panorama-metadata {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 12;
+  box-sizing: border-box;
+  max-width: calc(100% - 180px);
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  direction: rtl;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+#panorama-attribution a {
+  color: inherit;
+}
+
+#camera-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+#live-camera-toggle,
+#panorama-points-toggle,
+#mapillary-expand-toggle {
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  background: #fff;
+  color: #222;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+#mapillary-expand-toggle {
+  display: none;
+}
+
+#panorama-points-toggle {
+  display: none;
+}
+
+#live-camera-toggle[aria-pressed="true"] {
+  background: #ff7900;
+  color: #fff;
+}
+
+#mapillary-expand-toggle[aria-pressed="true"] {
+  background: #ff7900;
+  color: #fff;
+}
+
+#panorama-points-toggle[aria-pressed="true"] {
+  background: #ff7900;
+  color: #fff;
+}
+
+.mapillary-direction-marker {
+  display: block;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+.mapillary-direction-marker svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.live-camera-mode #mapillary {
+  display: block;
+}
+
+body.live-camera-mode #mapillary-expand-toggle {
+  display: block;
+}
+
+body.live-camera-mode #panorama-points-toggle {
+  display: block;
+}
+
+body.mapillary-online-mode.live-camera-mode #panorama-points-toggle,
+body.mapillary-online-mode #offline-panorama-canvas,
+body.mapillary-online-mode #offline-panorama-controls,
+body.mapillary-online-mode #panorama-metadata,
+body.mapillary-online-mode #panorama-attribution {
+  display: none !important;
+}
+
+body.mapillary-online-mode #mapillary-online-viewer {
+  display: block;
+}
+
+body:not(.mapillary-online-mode) #mapillary-online-viewer {
+  display: none;
+}
+
+body.live-camera-expanded #mapillary {
+  inset: 0;
+  width: auto;
+  height: auto;
+  z-index: 15;
+  border-radius: 0;
+}
+
+body.live-camera-expanded #camera-controls {
+  z-index: 20;
+}
+
+@media (max-width: 700px) {
+  #mapillary {
+    top: 60px;
+    right: 12px;
+    width: min(360px, calc(100vw - 24px));
+    height: min(420px, calc(100vh - 72px));
+  }
+
+  #camera-controls {
+    top: 12px;
+    right: 12px;
+  }
+
+}
