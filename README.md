@@ -83,11 +83,12 @@ Because modern web browsers enforce strict security policies regarding local fil
 
 Run one of the following commands depending on your environment:
 
-* **Using Python (Recommended for simple setups):**
+* **Using the project server (Recommended):**
   ```bash
-  python3 -m http.server 8080
+  python server.py
   ```
-  *(Or `python -m SimpleHTTPServer 8080` for older Python 2 versions)*
+  This serves the site on port `8000` and provides the local reverse-geocoding
+  endpoint used to look up Mapillary image locations.
 
 * **Using NPM (Alternative Node.js static server):**
   If you prefer using npm packages (like `serve` or a local script), you can run:
@@ -106,10 +107,11 @@ Run one of the following commands depending on your environment:
 Once the server is running, open your web browser and navigate to:
 
 ```text
-http://localhost:8080/web/index.html
+http://127.0.0.1:8000/web/index.html
 ```
 
 ## Configuration & Customization
 
+* **Mapillary access token:** Set `MAPILLARY_ACCESS_TOKEN` in the project-root `.env` file. Restart `python server.py` after changing it. The local config endpoint supplies the token to the browser for MapillaryJS; because the viewer runs in the browser, the token is visible to users of the page. Do not use a privileged secret token here or commit `.env`.
 * **Adding Markers:** Edit `points/points.json` to add, remove, or modify map points, coordinates (`lat`/`lon`), and marker visual properties.
 * **Styling:** Modify `web/js/load-map.js` to adjust default zoom levels, center coordinates, or popup templates.

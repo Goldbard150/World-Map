@@ -3,21 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <title>Offline Map</title>
-  <link href="css/maplibre-gl.css" rel="stylesheet"/>
-
-  <style>
-    body, html { margin: 0; padding: 0; height: 100%; width: 100%; }
-    #map { width: 100vw; height: 100vh; background-color: #aad3df; }
-  </style>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/maplibre-gl.css"/>
+  <link rel="stylesheet" href="vendor/mapillary.css" />
+  <link rel="stylesheet" href="css/app.css" />
 </head>
 
 <body>
   <div id="map"></div>
-
+  <div id="mapillary"></div>
+  <div id="camera-controls">
+    <button id="live-camera-toggle" type="button" aria-pressed="false">
+      Live Camera Mode
+    </button>
+    <button id="mapillary-expand-toggle" type="button" aria-pressed="false">
+      Expand camera
+    </button>
+  </div>
 
   <script src="js/maplibre-gl.js"></script>
-
+  <script src="vendor/mapillary.js"></script>
   <script src="js/load-map.js"></script>
-
 </body>
 </html>

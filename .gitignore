@@ -1,5 +1,8 @@
 # Node modules & dependencies
 node_modules/
+.env
+.env.*
+!.env.example
 
 # System or OS specific files (optional but recommended)
 .DS_Store
